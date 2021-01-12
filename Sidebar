@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>practice</title>
+    <link href="icofont/icofont.min.css" rel="stylesheet">
+    <link href="animate.css" rel="stylesheet">
+   <style>
+   
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;1,300&family=Lora:ital@1&family=PT+Sans&family=Ubuntu&family=Work+Sans:wght@300;400&display=swap');
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        //font-family: 'Karla', sans-serif;
+        //font-family: 'Lora', serif;
+        //font-family: 'PT Sans', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
+        //font-family: 'Work Sans', sans-serif;
+ 
+      }
+    body{
+     width: 100%;
+     height: 100vh;
+     color: black;
+     
+   }
+     .header{
+       width: 100%;
+       height: 50px;
+       //background: linear-gradient(85deg,#4ff1f7,#00b1ffdd);
+       background: linear-gradient(145deg,#17399eb2,#78cbedcc);
+       display:flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 0 20px;
+      
+     }
+     .profile{
+       display:none;
+     }
+     .menu{
+       display: none;
+     }
+     .logo i{
+       font-size: 40px;
+       color: #046198;
+      
+     }
+     .menu i{
+       font-size: 40px;
+       color: darkslategray;
+     }
+     .nav ul{
+       list-style: none;
+       display: flex;
+       justify-content: space-between;
+     }
+     .nav ul li{
+       margin: 0 15px;
+       text-transform: uppercase;
+       color: #090808ca;
+     }
+     .nav ul li span{
+       display: none;
+     }
+     .second-menu{
+       width: 100%;
+       height: 30px;
+       overflow-x: auto;
+       transition: all 2s;
+       background: linear-gradient(145deg,#17399eb2,#78cbedcc);
+     }
+     .second-menu .slider{
+       width: auto;
+       height: 100%;
+       display: flex;
+       align-items: center;
+      
+       
+     }
+     .second-menu .slider ul{
+       list-style: none;
+       display: flex;
+     }
+     .second-menu .slider ul li{
+       padding: 0 15px;
+       text-transform: uppercase;
+       font-weight: 400;
+       color: darkslategray;
+      
+     }
+
+     ::-webkit-scrollbar{
+       display: none;
+     }
+     .card_section{
+       width:100%;
+       height:500px;
+       display:flex;
+       flex-wrap: wrap;
+       background: whitesmoke;
+
+     }
+     .curve_part{
+       width: 100%;
+       height: 150px;
+       background: linear-gradient(145deg,#17399eb2 ,#78cbedcc);
+       text-align: center;
+       color: white;
+       
+      
+     }
+ 
+     
+      .hero_section{
+         width: 100%;
+         height: 300px;
+         background: snow;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         
+  
+         
+       }
+       .content{
+         position: relative;
+         width: 150px;
+         height: 150px;
+         border-radius: 50%;
+         border:5px solid white;
+         background: linear-gradient(180deg, transparent 40%, #4ff1f7/*transparent */60%);/*#00b1ffdd)*/
+         box-shadow: 0 0 0 5px darkslategray;
+         overflow: hidden;
+        // animation: slideInUp 2s linear infinite;
+         //animation-direction: alternate;
+       }
+       .content:before{
+         position: absolute;
+         content:'';
+         top: -90%;
+         left: -30%;
+         width: 200px;
+         height: 200px;
+         background: white;
+         border-radius: 40%;
+         animation: one 2.5s linear infinite;
+         animation-direction: alternate;
+        
+         
+       }
+ 
+       
+
+       @keyframes one{
+         from{
+           transform: translateY(-10px) rotate(56deg);
+         }
+         to{
+           transform: translateX(15px) rotate(360deg);
+         }
+       }
+  
+
+     @media (max-width:567px){
+       .nav{
+         position: fixed;
+         top: 0;
+         left: -260px;
+         width: 260px;
+         height: 100vh;
+         background: white;
+         box-shadow: 0.5px 0 5px rgba(0,0,0,0.1);
+         overflow: hidden;
+         transition: left 0.3s ;
+         z-index: 1;
+         
+       }
+       .animate{
+         animation: bounceInLeft 1s ease;
+       }
+       .open{
+         left: 0;
+      
+       }
+       .nav ul{
+         flex-direction: column;
+       
+       }
+       .nav ul li{
+         padding: 20px 15px;
+         font-weight: 500;
+       }
+       .nav ul li span{
+         display: inline-block;
+         color: #00b1ffdd;
+       }
+       
+       .menu{
+         display: block;
+       }
+       .head_curve{
+         position: relative;
+         width: 300px;
+         height: 200px;
+         //background: linear-gradient(85deg,#4ff1f7,#00b1ffdd);
+         background: linear-gradient(145deg,#17399eb2,#78cbedcc);
+         transform: rotate(-20deg) translateY(-50px);
+         border-radius: 0 0 0 80px;
+       }
+       .profile{
+         display:block;
+         position: absolute;
+         width: 80px;
+         height: 80px;
+         top: 90px;
+         left: 30px;
+         border: 4px solid #00b1ffdd;
+         border-radius:50%;
+         box-shadow:0 0 0 4px rgba(0,0,0,0.5),
+                    0 0 10px rgba(0,0,0,0.2) inset;
+         overflow: hidden;
+       }
+       .profile .avatar{
+         display: grid;
+         margin-left: 5px;
+         place-items: center;
+         font-size: 60px;
+         transform: rotate(20deg) scale(1.1) translateY(10px);
+         
+       }
+    
+       
+     }
+   </style>
+  </head>
+  <body>
+
+   
+      <div class="header">
+        <div class="logo">
+          <i class="icofont-dashboard-web"></i>
+        </div>
+         <div class="menu"><i class="icofont-navigation-menu" id="menubtn"></i></div>
+        <div class="nav" id="navmenu">
+          <div class="head_curve">
+          
+            <div class="profile">
+             <!-- <img src="plant.jpg" alt="img" />-->
+             <div class="avatar"><i class="icofont-business-man"></i></div>
+            </div>
+          
+          </div>
+           <ul>
+             <li><span class="icofont-home"></span> home</li>
+             <li><span class="icofont-business-man"></span> about</li>
+             <li><span class="icofont-telephone"></span> contact</li>
+             <li><span class="icofont-dashboard-web"></span> services</li>
+             <li><span class="icofont-photobucket"></span> gallery</li>
+             <li><span class="icofont-warning"></span> disclaimer</li>
+           </ul>
+        </div>
+      </div>
+      <div class="second-menu">
+        <div class="slider">
+          <ul>
+            <li>aagra</li>
+            <li>delhi</li>
+            <li>mumbai</li>
+            <li>shahganj</li>
+            <li>azamgarh</li>
+            <li>jaunpur</li>
+            <li>allahbad</li>
+            <li>deoband</li>
+            <li>mahmoodpur</li>
+            <li>saraimeer</li>
+            <li>kuswan</li>
+            <li>Mohammadpur</li>
+            <li>ghaziabad</li>
+          </ul>
+        </div>
+      </div>
+     <div class="hero_section">
+         <div class="content" id="box"></div>
+     </div>
+       
+  
+
+   <script type="text/javascript">
+      const menuBtn = document.getElementById("menubtn");
+      const menu = document.getElementById('navmenu');
+     
+
+        menuOpen = false;
+        menuBtn.addEventListener('click', () => {
+        if(!menuOpen){
+          menu.classList.add('open');
+          menu.classList.add('animate');
+          menuBtn.classList.add('icofont-navigation');
+          menuOpen = true;
+        }
+        else{
+          menu.classList.remove('open');
+          menu.classList.remove('animate');
+          menuBtn.classList.remove('icofont-navigation');
+          menuOpen = false;
+        }
+      });
+      
+   
+     
+     
+     
+   </script>
+  </body>
+</html>
+            
