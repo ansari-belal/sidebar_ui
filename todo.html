@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<title>practice</title>
+<link href="icofont/icofont.min.css" rel="stylesheet">
+<link href="animate.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;1,300&family=Lora:ital@1&family=PT+Sans&family=Ubuntu&family=Work+Sans:wght@300;400&display=swap');
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Karla', sans-serif;
+        //font-family: 'Lora', serif;
+        //font-family: 'PT Sans', sans-serif;
+        //font-family: 'Ubuntu', sans-serif;
+        //font-family: 'Work Sans', sans-serif;
+ 
+      }
+::-webkit-scrollbar{
+  width:0px;
+}
+body{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.container{
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: #eff0f0bd;
+  //background: transparent;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 0px 10px 20px lightgray;
+}
+.form_box{
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form_box #addTodo{
+  width: 180px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #555;
+  outline: none;
+  color: slategray;
+  padding: 0 10px;
+  font-weight: 500; 
+  font-size: 20px;
+  text-shadow: 1px 1px 2px lightslategray;
+}
+.form_box button{
+  width: 80px;
+  height:30px;
+  border:none;
+  outline: none;
+  background: #4b09b3ac;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+
+}
+
+.list_box{
+  width:100%;
+  height: 100%;
+  //background: rgba(0,184,255,0.055);
+  overflow-y: auto;
+  border-radius: 5px;
+}
+.list_box ul{
+  list-style: none;
+  padding: 10px;
+  
+  
+}
+.list_box ul li{
+  font-size: 20px;
+  color: white;
+  padding: 5px 10px;
+  font-family: verdana;
+  letter-spacing: 0.8px;
+  font-variant: small-caps;
+  border: 2px solid slateblue;
+  box-shadow: 0px 0px 2px slateblue,
+        0px 0px 5px #555 inset;
+  border-radius: 3px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  font-family: 'Karla', sans-serif;
+  color: slategray;
+  text-shadow: 1px 1px 2px lightslategray;
+}
+.list_box ul li i{
+  color: white;
+  text-shadow: 1px  1px 2px slategray;
+}
+.li_color{
+  background: darkslategray;
+}
+body h1{
+  text-align: center;
+  color: #4b09b3ac;
+}
+</style>
+</head>
+<body> 
+   <h1>TODO LIST WEB APP</h1>
+<div class="container">
+   
+    <form id="addTodoForm">
+     
+      <div class="form_box">
+      
+  
+       <input type="text" name="todo" id="addTodo" value="" autocomplete="off" required=""/>
+       <button type="submit">Add todo</button>
+    
+      </div>
+     
+    </form>
+  
+ 
+ 
+  <div class="list_box">
+   <ul id="list_add">
+     
+    </ul>
+
+  </div>
+ </div>
+ 
+
+<script>
+var todos = [];
+
+var addTodoForm = document.getElementById("addTodoForm");
+var addList = document.getElementById("list_add");
+var storedTodos = localStorage.getItem("todos");
+var addTodo = document.getElementById('addTodo');
+
+
+function createList(todoValue, todoIndex){
+  var li = document.createElement('li');
+  li.innerHTML = todoValue;
+  
+  if (todos[todoIndex].completed) {
+    li.classList.add('li_color');
+  }
+  
+  li.addEventListener('click', function(){
+    if (todos[todoIndex].completed) {
+      li.classList.remove('li_color');
+      todos[todoIndex].completed = false;
+    }else{
+      li.classList.add('li_color');
+      todos[todoIndex].completed = true;
+    }
+   localStorage.setItem('todos', JSON.stringify(todos));
+
+  });
+  
+  var icon = document.createElement('i');
+  icon.setAttribute('class', 'icofont-delete');
+  
+  icon.addEventListener('click', function(event){
+    event.stopPropagation();
+    event.target.parentElement.remove();
+    todos.splice(todoIndex,1);
+    localStorage.setItem('todos', JSON.stringify(todos));
+ });
+ 
+  
+  li.appendChild(icon);
+  
+  return li;
+}
+
+function renderTodos(todos){
+  todos.forEach(function(todo, index){
+  
+  var li = createList(todo.value, index);
+  
+  addList.appendChild(li);
+  });
+}
+
+if (storedTodos) {
+  parseStoredTodos = JSON.parse(storedTodos);
+  todos = parseStoredTodos;
+  renderTodos(todos);
+}
+  addTodoForm.addEventListener('submit', function(event){
+  event.preventDefault();
+  
+  var todoValue = addTodoForm.todo.value;
+    
+    todos.push({
+    value: todoValue,
+    complete: false,
+  });
+  
+  
+  addTodoForm.todo.value = "";
+  
+  localStorage.setItem('todos', JSON.stringify(todos));
+  
+  
+  var li = createList(todoValue, todos.length - 1);
+  addList.appendChild(li);
+
+});
+  
+  
+</script>
+</body>
+</html>
