@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link rel="stylesheet" href="font-awesome.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: verdana;
+			}
+			header{
+				width:100%;
+				padding: 20px 55px;
+				background: white;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			header .logo span{
+				width: 100px;
+				padding: 0px 20px;
+				font-size: 25px;
+				border: 2px solid black;
+				font-variant: small-caps;
+				font-weight: 400;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				letter-spacing: 2px;
+			}
+			header ul{
+				list-style: none;
+				display: flex;
+			}
+			header ul li{
+				margin-left: 25px;
+				text-transform: capitalize;
+				font-weight: 500;
+			}
+			.active{
+				color: orange;
+			}
+			.hero{
+				position: relative;
+				width: 100%;
+				height: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				color: white;
+	    	background-image: url('img2.jpg');
+			  z-index: 1;
+				background-size: cover;
+			}
+			.hero h1{
+				color: white;
+				z-index: 2;
+				text-transform: capitalize;
+				margin: 5px;
+				font-size: 4em;
+			}
+			.hero h4{
+				color: white;
+				font-size: 2em;
+				z-index: 2;
+				text-transform: capitalize;
+			}
+			.hero:before{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+			  width: 100%;
+			  height: 100%;
+				background: linear-gradient(-45deg,rgba(125,0,230,0.759),#554cffed);
+     	}
+     	.cards{
+     		width: 100%;
+     		padding:20px 0;
+     		display: grid;
+     		grid-gap: 15px;
+     		grid-template-columns: repeat(4,auto);
+     		justify-content: center;
+     	}
+     	.cards .card{
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        overflow: hidden;
+     	}
+     	.cards .card img{
+     		width: 200px;
+     		height: 200px;
+     	}
+     	.cards .card h3{
+     		text-transform: capitalize;
+     		font-weight: 500;
+     		letter-spacing: 1px;
+     	}
+     	.cards .card .stars span{
+     		color: #fffb57;
+     		font-size: 15px;
+     		margin: 5px 0;
+     	}
+     	.product_info{
+     		padding: 10px;
+     	}
+     	@media (max-width:967px){
+       header{
+       	height: 50px;
+       	padding: 10px;
+       }
+       .hero h1{
+       	font-size: 40px;
+       	text-align: center;
+       }
+       .hero h4{
+       	font-size: 20px;
+       }
+       header ul{
+				display: none;
+			 }
+       header ul li{
+       	
+       }
+	    .cards{
+         grid-template-columns:auto;
+	     }
+     	.cards .card img{
+         width: 300px;
+         height: 300px;
+      	}
+     	}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<span>astra</span>
+			</div>
+			<div class="links">
+				<ul>
+					<li class="active">home</li>
+					<li>shop</li>
+					<li>sample Ppage</li>
+					<li>blog</li>
+					<li>my account</li>
+				</ul>
+			</div>
+		</header>
+			<section class="hero">
+				<h1>let's build your website!</h1>
+				<h4>lorem ipsum dummy text here</h4>
+			</section>
+			
+			<section class="cards">
+			
+				<div class="card">
+					<img class="" src="l3.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$100.00</span>
+				</div>
+				</div>
+			
+				<div class="card">
+					<img class="" src="l4.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$400.00</span>
+				</div>
+				</div>
+			
+				<div class="card">
+					<img class="" src="l5.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$150.00</span>
+				</div>
+				</div>
+			
+				<div class="card">
+					<img class="" src="l6.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$230.00</span>
+				</div>
+				</div>
+			</section>
+
+    	<section class="cards">
+			
+				<div class="card">
+					<img class="" src="l10.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$100.00</span>
+				</div>
+				</div>
+			
+				<div class="card">
+					<img class="" src="l7.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$400.00</span>
+				</div>
+				</div>
+			
+				<div class="card">
+					<img class="" src="l8.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$150.00</span>
+				</div>
+				</div>
+			
+				<div class="card">
+					<img class="" src="l9.jpg" alt="" />
+					<div class="product_info">
+					<h3>black t-shirt</h3>
+					<div class="stars">
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					  <span class="fa fa-star"></span>
+					</div>
+					<span class="price">$230.00</span>
+				</div>
+				</div>
+			</section>
+
+	</body>
+</html>
